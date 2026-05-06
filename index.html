@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Wish List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <header>
+        <h1>Wish List</h1>
+        <p>Список твоих желаний</p>
+    </header>
+<!-- добавление пункта -->
+    <div class="card form">
+        <input type="text" id="title" placeholder="Название желания">
+        <input type="text" id="description" placeholder="Описание">
+        <input type="date" id="date">
+
+        <div class="row">
+            <select id="priority">
+                <option value="low">Низкий</option>
+                <option value="medium">Средний</option>
+                <option value="high">Высокий</option>
+            </select>
+
+            <select id="status">
+                <option value="planned">Запланировано</option>
+                <option value="progress">В процессе</option>
+                <option value="done">Выполнено</option>
+            </select>
+        </div>
+
+        <button class="primary" onclick="addItem()">Добавить</button>
+    </div>
+
+<!-- панель упраавления -->
+    <div class="card controls">
+        <input type="text" id="search" placeholder="Поиск..." oninput="render()">
+
+        <div class="row">
+            <select id="filterStatus" onchange="render()">
+                <option value="all">Все статусы</option>
+                <option value="planned">Запланировано</option>
+                <option value="progress">В процессе</option>
+                <option value="done">Выполнено</option>
+            </select>
+
+            <select id="sort" onchange="render()">
+                <option value="date">По дате</option>
+                <option value="priority">По приоритету</option>
+                <option value="title">По названию</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="list" class="list"></div>
+
+</div>
+
+
+<script src="app.js"></script>
+<script src="test.js"></script>
+</body>
+</html>
